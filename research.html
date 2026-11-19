@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Karim Cherifi</title>
+    <meta name="description" content="Research of Karim Cherifi: port-Hamiltonian systems, physics-informed machine learning, model reduction and digital twins.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: {
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            colors: { accent: { 50: '#e6f8f6', 100: '#c1ede8', 500: '#00a896', 600: '#009283', 700: '#00786b' } }
+        } } }
+    </script>
+    <script src="assets/site.js"></script>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased transition-colors duration-300">
+<div id="nav"></div>
+
+<main class="max-w-4xl mx-auto px-6 py-12 md:py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Research</h1>
+
+    <section class="mb-14 text-slate-600 dark:text-slate-300 leading-relaxed space-y-4">
+        <p>
+            Many technical systems, from electrical machines to flexible structures, are governed by physical principles
+            such as energy conservation, dissipation and interconnection. Yet purely data-driven models often ignore this
+            structure, and purely physics-based models are often too costly or too incomplete to be used in practice.
+        </p>
+        <p class="font-medium text-slate-900 dark:text-white">
+            My goal is to build models that are learned from data <em>and</em> respect the physics: models that are stable by construction,
+            interpretable, and cheap enough to power digital twins, estimation and control.
+        </p>
+        <p>
+            My work is both theoretical (structure, passivity and dissipativity of port-Hamiltonian systems, numerical
+            linear algebra) and computational (learning and reduction algorithms, software and benchmarks), and it is
+            motivated by industrial applications.
+        </p>
+    </section>
+
+    <nav class="mb-14 flex flex-wrap gap-2 text-sm">
+        <a href="#learning" class="px-3 py-1.5 rounded-full bg-accent-50 dark:bg-slate-800 text-accent-700 dark:text-accent-500 hover:bg-accent-100">Physics-informed learning</a>
+        <a href="#ph" class="px-3 py-1.5 rounded-full bg-accent-50 dark:bg-slate-800 text-accent-700 dark:text-accent-500 hover:bg-accent-100">Port-Hamiltonian theory</a>
+        <a href="#mor" class="px-3 py-1.5 rounded-full bg-accent-50 dark:bg-slate-800 text-accent-700 dark:text-accent-500 hover:bg-accent-100">Model order reduction</a>
+        <a href="#twins" class="px-3 py-1.5 rounded-full bg-accent-50 dark:bg-slate-800 text-accent-700 dark:text-accent-500 hover:bg-accent-100">Digital twins</a>
+    </nav>
+
+    <section id="learning" class="mb-14 scroll-mt-24">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2"><i class="ph-fill ph-brain text-accent-600"></i> Physics-informed learning and system identification</h2>
+        <div class="flow-root">
+            <figure class="md:float-right md:w-1/2 md:ml-6 mb-4">
+            <img src="assets/media/fig-learning.png" alt="Architecture of a learned port-Hamiltonian system with MLP or KAN components" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white p-2">
+            <figcaption class="text-xs text-slate-500 dark:text-slate-400 mt-2">Structure-preserving neural architecture for learning port-Hamiltonian systems.</figcaption>
+        </figure>
+        <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            I develop machine-learning frameworks that embed physical structure and prior scientific knowledge. Starting from linear
+            pH realizations inferred from time-domain data and greedy data collection, my recent work targets nonlinear systems with
+            structure-preserving neural networks, Kolmogorov-Arnold networks and diffusion models, and asks how much data and model
+            capacity are needed (neural scaling laws). I also work on a benchmark platform for pH systems to compare methods fairly.
+        </p>
+        <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400 list-disc ml-5">
+            <li>PH-Symb: Sparse symbolic identification of nonlinear pH systems using Kolmogorov-Arnold networks (<a class="text-accent-600 underline" href="https://arxiv.org/abs/2611.09334" target="_blank" rel="noopener">arXiv:2611.09334</a>)</li>
+            <li>PH-KAN: Port-Hamiltonian Kolmogorov-Arnold Network (<a class="text-accent-600 underline" href="https://arxiv.org/abs/2606.14708" target="_blank" rel="noopener">arXiv:2606.14708</a>)</li>
+            <li>Target parameterization in diffusion models for nonlinear spatiotemporal system identification (<a class="text-accent-600 underline" href="https://arxiv.org/abs/2604.17566" target="_blank" rel="noopener">arXiv:2604.17566</a>)</li>
+            <li>Nonlinear pH system identification from input-state-output data, ISO-pHNN (<em>Physica D</em>, 2026)</li>
+            <li>Neural scaling laws for learning-based identification of nonlinear systems (<em>IEEE OJ-CSYS</em>, 2026)</li>
+            <li>An overview on recent machine learning techniques for port-Hamiltonian systems (<em>Physica D</em>, 2020)</li>
+            <li>A greedy data collection scheme for linear dynamical systems (<em>Data-Centric Engineering</em>, 2022)</li>
+            <li>A non-intrusive method to inferring linear pH realizations using time-domain data (<em>ETNA</em>, 2022)</li>
+            <li>Computing the nearest scattering passive system (<em>Electronic Journal of Linear Algebra</em>, 2026)</li>
+        </ul>
+        </div>
+    </section>
+
+    <section id="ph" class="mb-14 scroll-mt-24">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2"><i class="ph-fill ph-atom text-accent-600"></i> Port-Hamiltonian systems theory</h2>
+        <div class="flow-root">
+            <figure class="md:float-right md:w-2/5 md:ml-6 mb-4">
+            <img src="assets/media/fig-ph.png" alt="Relations between port-Hamiltonian, positive-real, KYP and passive descriptor systems" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white p-2">
+            <figcaption class="text-xs text-slate-500 dark:text-slate-400 mt-2">Relations between pH, positive-real (PR), passive (Pa) and KYP descriptor systems.</figcaption>
+        </figure>
+        <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            Port-Hamiltonian (pH) systems describe energy-based, modular models in which stability and passivity follow from the structure.
+            I study how pH systems relate to classical notions such as passivity, positive realness and dissipativity, in
+            continuous time, discrete time, descriptor and time-varying settings, together with the numerical tools to compute and
+            compare such models (minimal realizations, nearest scattering passive systems).
+        </p>
+        <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400 list-disc ml-5">
+            <li>Relationship between dissipativity concepts for linear time-varying pH systems (<em>MCSS</em>, 2025)</li>
+            <li>On discrete-time dissipative pH (descriptor) systems (<em>MCSS</em>, 2024)</li>
+            <li>The difference between pH, passive and positive real descriptor systems (<em>MCSS</em>, 2024)</li>
+            <li>A geometric framework for discrete-time pH systems (<em>PAMM</em>, 2023)</li>
+        </ul>
+        </div>
+    </section>
+
+    <section id="mor" class="mb-14 scroll-mt-24">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2"><i class="ph-fill ph-arrows-in text-accent-600"></i> Model order reduction</h2>
+        <div class="flow-root">
+            <figure class="md:float-right md:w-2/5 md:ml-6 mb-4">
+            <img src="assets/media/fig-mor.png" alt="State-space matrices A, B, C, D sampled at different parameter values" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white p-2">
+            <figcaption class="text-xs text-slate-500 dark:text-slate-400 mt-2">Parametric system sampled at different parameter values p.</figcaption>
+        </figure>
+        <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            Large models need to be compressed before they can be simulated in real time or used for control. I work on minimal
+            realizations of multi-input multi-output systems, reduction based on matrix polynomials and solvents, and data-driven
+            rational interpolation of parametric systems.
+        </p>
+        <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400 list-disc ml-5">
+            <li>Snapshot-driven rational interpolation of parametric systems (<em>Automatica</em>, 2026)</li>
+            <li>Numerical methods to compute a minimal realization of a pH system (<a class="text-accent-600 underline" href="https://arxiv.org/abs/1903.07042" target="_blank" rel="noopener">arXiv:1903.07042</a>)</li>
+            <li>A novel recursive algorithm for inverting matrix polynomials via a generalized Leverrier–Faddeev scheme (<em>Mathematics</em>, 2025)</li>
+            <li>Model reduction based on matrix polynomials (<em>IEEE ARSO</em>, 2018)</li>
+        </ul>
+        </div>
+    </section>
+
+    <section id="twins" class="mb-14 scroll-mt-24">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2"><i class="ph-fill ph-gear text-accent-600"></i> Digital twins and applications</h2>
+        <div class="flow-root">
+            <figure class="md:float-right md:w-2/5 md:ml-6 mb-4">
+                        <img src="assets/media/fig-twins.png" alt="Model hierarchy for digital twins, from physical subsystem to reduced order model" class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white p-2">
+                        <figcaption class="text-xs text-slate-500 dark:text-slate-400 mt-2">Model hierarchy for digital twins, from PDE models to reduced and data-driven models.</figcaption>
+                    </figure>
+        <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            I have worked on hierarchical, physics-based models of electrical machines and large drives for digital twins, in
+            collaboration with industrial partners, as well as on flexible structures and power-system security control.
+            With I. V. Gosea, I co-edited the book <em>Physics-Based and Data-Driven Modeling for Digital Twins</em> (Springer, 2026).
+        </p>
+        <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400 list-disc ml-5">
+            <li><a class="text-accent-600 underline" href="https://link.springer.com/book/10.1007/978-981-96-9108-1" target="_blank" rel="noopener"><em>Physics-Based and Data-Driven Modeling for Digital Twins</em></a> (co-edited book, ICIAM2023 Springer Series, vol. 8, 2026)</li>
+            <li>Hierarchical modeling for an industrial implementation of a digital twin for electrical drives (book chapter, Springer, 2026)</li>
+            <li>Simulations in a digital twin of an electrical machine (<a class="text-accent-600 underline" href="https://arxiv.org/abs/2207.02171" target="_blank" rel="noopener">arXiv:2207.02171</a>)</li>
+            <li>Application of data-driven realizations to pH flexible structures (<em>IFAC-PapersOnLine</em>, 2021)</li>
+        </ul>
+        </div>
+    </section>
+
+    <section class="mb-10 p-6 rounded-2xl border-2 border-accent-100 dark:border-accent-700 bg-accent-50/50 dark:bg-slate-800/60 text-sm text-slate-600 dark:text-slate-300">
+        <h3 class="font-bold text-slate-900 dark:text-white mb-1">Collaborations</h3>
+        Interested in working together? <a class="text-accent-600 underline" href="mailto:karim.cherifi@femto-st.fr">Get in touch</a>.
+        See the full <a class="text-accent-600 underline" href="index.html#publications">publication list</a>.
+    </section>
+</main>
+<div id="footer"></div>
+<script>renderNav();</script>
+</body>
+</html>

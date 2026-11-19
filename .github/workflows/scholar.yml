@@ -1,0 +1,29 @@
+name: Check Google Scholar for new publications
+
+on:
+  schedule:
+    - cron: "0 6 1 * *" # 1st of every month, 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python .github/scripts/check_scholar.py
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          branch: scholar-update
+          title: "New publications found on Google Scholar"
+          body: "Review `pending-publications.md`, move the entries you want into `PUBS` in `assets/site.js`, then delete the file and merge."
+          commit-message: "Add pending publications from Google Scholar"
+          add-paths: pending-publications.md
+          delete-branch: true

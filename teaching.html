@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching | Karim Cherifi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: {
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            colors: { accent: { 50: '#e6f8f6', 100: '#c1ede8', 500: '#00a896', 600: '#009283', 700: '#00786b' } }
+        } } }
+    </script>
+    <script src="assets/site.js"></script>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased">
+<div id="nav"></div>
+<main class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">Teaching &amp; Supervision</h1>
+
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Student supervision</h2>
+        <ul id="sup" class="space-y-4 text-sm"></ul>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Teaching</h2>
+        <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+            <li><span class="font-semibold text-accent-600 mr-2">Winter 2026/2027</span>Introduction to machine learning, EIPHI Graduate School, Besançon.</li>
+            <li><span class="font-semibold text-accent-600 mr-2">Summer 2026</span>Introduction to AI, EU4M Master, SUPMICROTECH.</li>
+            <li><span class="font-semibold text-accent-600 mr-2">Summer 2025</span>Model order reduction and surrogate modeling, University of Wuppertal.</li>
+            <li><span class="font-semibold text-accent-600 mr-2">2015 – 2019</span>Teaching assistant, active devices course, Institute of Electrical and Electronic Engineering (INELEC), Boumerdes, Algeria.</li>
+        </ul>
+    </section>
+</main>
+<div id="footer"></div>
+<script>
+    renderNav();
+    renderSupervision(document.getElementById('sup'));
+</script>
+</body>
+</html>
