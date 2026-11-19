@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | Karim Cherifi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: {
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            colors: { accent: { 50: '#e6f8f6', 100: '#c1ede8', 500: '#00a896', 600: '#009283', 700: '#00786b' } }
+        } } }
+    </script>
+    <script src="assets/site.js"></script>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased">
+<div id="nav"></div>
+<main class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">News Archive</h1>
+    <div id="all-news" class="text-sm"></div>
+</main>
+<div id="footer"></div>
+<script>
+    renderNav();
+    document.getElementById('all-news').innerHTML = newsList(NEWS);
+</script>
+</body>
+</html>
